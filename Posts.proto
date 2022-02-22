@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package movie;
+
+import "Commons.proto";
+
+message GetPostParams {
+
+}
+
+message GetPostResult {
+    PostDTO post = 1;
+}
+
+message ListPostParams {
+    // 게시판 id로 쓰이는 필드
+    // 만약 null값이 올라오는 경우, 자유게시판 게시물을 가져온다
+    StringValue movie_id = 1;
+}
+
+message ListPostResult {
+    repeated PostDTO posts = 1;
+}
+
+message CreatePostParams {
+    string title = 1;
+    string content = 2;
+    StringValue movie_id = 3;
+}
+
+message CreatePostResult {
+    PostDTO post = 1;
+}
+
+message DeletePostParams {
+    string post_id = 1;
+}
+
+message DeletePostResult {
+    PostDTO post = 1;
+}
+
+message UpdatePostParams {
+    PostDTO post = 1;
+}
+
+message UpdatePostResult {
+    PostDTO post = 1;
+}

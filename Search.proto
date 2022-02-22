@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package movie;
+
+import "Commons.proto";
+
+message SearchParams {
+    string key = 1;
+}
+
+message SearchResult {
+    repeated MovieDTO movies = 1;
+    repeated PostDTO posts = 2;
+}

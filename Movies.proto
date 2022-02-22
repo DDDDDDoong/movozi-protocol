@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package movie;
+
+import "Commons.proto";
+
+message GetMovieParams {
+}
+
+message GetMovieResult {
+    MovieDTO movie = 1;
+}
+
+message ListMoviesParams {
+
+}
+
+message ListMoviesResult {
+    repeated MovieDTO movies = 1;
+}
+
+message GetRandomMovieParams {
+
+}
+
+message GetRandomMovieResult {
+    MovieDTO movie = 1;
+}

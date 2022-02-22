@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package movie;
+
+message MovieDTO {
+    string id = 1;
+    string title = 2;
+    TimeStamp released_at = 3;
+    string poster_path = 4;
+    string genre = 5;
+    repeated ActorDTO actors = 6;
+    DirectorDTO directors = 7;
+}
+
+message ActorDTO {
+    string id = 1;
+    string name = 2;
+    string picture_path = 3;
+}
+
+message DirectorDTO {
+    string id = 1;
+    string name = 2;
+    string picture_path = 3;
+}
+
+message MovieReviewDTO {
+    string id = 1;
+    MovieDTO movie = 2;
+    Critic critic = 3;
+    string comment = 4;
+    double rate = 5;
+    double maximum_rate = 6;
+}
+
+message UserDTO {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    repeated Genre preferred_genres = 4;
+    repeated Ott using_otts = 5;
+}
+
+message PostDTO {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+    StringValue movie_id = 4;
+}
+
+message Genre {
+    string name = 1;
+}
+
+message Ott {
+    string name = 1;
+}
+
+message Critic {
+    string name = 1;
+}
+
+/**
+ * 시간을 나타내는 message
+ * int64 type의 값으로 epochiMilli 값을 나타냄
+ */
+message TimeStamp {
+    int64 value = 1;
+}
+
+/**
+ * nullable한 string을 나타내기 위한 message
+ */
+message StringValue {
+    string value = 1;
+}

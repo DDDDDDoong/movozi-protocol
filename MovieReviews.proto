@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package movie;
+
+import "Commons.proto";
+
+message GetMovieReviewParams {
+
+}
+
+message GetMovieReviewResult {
+    MovieReviewDTO review = 1;
+}
+
+message ListMovieReviewParams {
+
+}
+
+message ListMovieReviewResult {
+    repeated MovieReviewDTO reviews = 1;
+}
+
+message CreateMovieReviewParams {
+    string movie_id = 1;
+    string comment = 2;
+    string rate = 3;
+}
+
+message CreateMovieReviewResult {
+    MovieReviewDTO review = 1;
+}
+
+message DeleteMovieReviewParams {
+
+}
+
+message DeleteMovieReviewResult {
+    MovieReviewDTO review = 1;
+}
+
+message VoteMovieReviewParams {
+    // 특정 영화 평점에 대해 사용자가 투표할 때 쓰이는 필드
+    // true는 +1 투표, false는 -1 투표를 한다
+    // TODO: 투표 방식 단순 연산에서 row를 쌓는 방식으로 변경하기
+    bool up_or_down = 1;
+}
+
+message VoteMovieReviewResult {
+    MovieReviewDTO review = 1;
+}
